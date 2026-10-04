@@ -181,6 +181,31 @@ body {
   box-shadow: 0 0 0 2px var(--color-primary-light);
 }
 
+/* Acciones en la tarjeta de filtros */
+.filters-actions {
+  margin-top: var(--spacing-md);
+  padding-top: var(--spacing-sm);
+  border-top: 1px dashed var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.items-per-page-top {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-muted);
+}
+
+.items-per-page-top select {
+  padding: 6px var(--spacing-sm);
+}
+
 /* Buttons */
 .btn {
   padding: var(--spacing-sm) var(--spacing-md);
@@ -192,12 +217,17 @@ body {
   transition: all 0.2s;
 }
 
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
 .btn-primary {
   background-color: var(--color-primary);
   color: var(--color-text-inverse);
 }
 
-.btn-primary:hover {
+.btn-primary:hover:not(:disabled) {
   background-color: var(--color-primary-hover);
 }
 
@@ -207,7 +237,7 @@ body {
   color: var(--color-text-main);
 }
 
-.btn-outline:hover {
+.btn-outline:hover:not(:disabled) {
   background-color: var(--color-bg);
 }
 
@@ -258,6 +288,52 @@ body {
 .badge-cerrada { background: var(--color-state-cerrada-bg); color: var(--color-state-cerrada-text); }
 .badge-adjudicada { background: var(--color-state-adjudicada-bg); color: var(--color-state-adjudicada-text); }
 .badge-desierta { background: var(--color-state-desierta-bg); color: var(--color-state-desierta-text); }
+
+/* Pagination Styling */
+.pagination-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md);
+  border-top: 1px solid var(--color-border);
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  background-color: var(--color-surface);
+}
+
+.pagination-info {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.pagination-buttons {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.page-numbers {
+  display: flex;
+  gap: var(--spacing-xs);
+}
+
+.btn-num {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  min-width: 32px;
+}
+
+.btn-num.active {
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  border-color: var(--color-primary);
+}
 
 /* UI States (Error, Empty, Skeleton) */
 .state-box {
@@ -321,5 +397,20 @@ body {
 
   .data-table td:last-child {
     border-bottom: none;
+  }
+
+  .filters-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .pagination-container {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+
+  .pagination-controls {
+    justify-content: center;
   }
 }

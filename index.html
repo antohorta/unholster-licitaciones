@@ -18,7 +18,7 @@
     <!-- Dev Mode Controls (Para la evaluación de la Etapa 2) -->
     <div class="dev-controls">
       <span>Simular Estados UI:</span>
-      <button class="btn btn-outline" onclick="setUIState('success')">Datos Réal</button>
+      <button class="btn btn-outline" onclick="setUIState('success')">Datos Real</button>
       <button class="btn btn-outline" onclick="setUIState('loading')">Carga (Skeleton)</button>
       <button class="btn btn-outline" onclick="setUIState('empty')">Sin Resultados</button>
       <button class="btn btn-outline" onclick="setUIState('error')">Error de Red</button>
@@ -73,10 +73,21 @@
         </div>
         <div class="filter-group">
           <label for="date-filter">Cierre hasta</label>
-          <input type="date" id-="date-filter" id="date-filter" class="input-control">
+          <input type="date" id="date-filter" class="input-control">
         </div>
       </div>
-      <div style="margin-top: var(--spacing-md); display: flex; justify-content: flex-end; gap: var(--spacing-sm);">
+
+      <!-- Barra de acciones superiores: Mostrar por página + Limpiar filtros -->
+      <div class="filters-actions">
+        <div class="items-per-page-top">
+          <label for="items-per-page-select">Mostrar por página:</label>
+          <select id="items-per-page-select" class="input-control">
+            <option value="5">5 registros</option>
+            <option value="6" selected>6 registros</option>
+            <option value="10">10 registros</option>
+            <option value="15">15 registros</option>
+          </select>
+        </div>
         <button class="btn btn-outline" id="btn-reset">Limpiar Filtros</button>
       </div>
     </section>
@@ -100,6 +111,22 @@
           <!-- Renderizado dinámico vía JS -->
         </tbody>
       </table>
+
+      <!-- Paginación con navegación a Primera / Última página -->
+      <div class="pagination-container" id="pagination-container">
+        <div class="pagination-info">
+          Mostrando <span id="page-start">0</span> a <span id="page-end">0</span> de <span id="page-total">0</span> licitaciones
+        </div>
+        <div class="pagination-controls">
+          <div class="pagination-buttons">
+            <button class="btn btn-outline btn-page" id="btn-first" title="Primera página" disabled>&laquo;</button>
+            <button class="btn btn-outline btn-page" id="btn-prev" title="Página anterior" disabled>&lsaquo; Ant</button>
+            <div id="page-numbers" class="page-numbers"></div>
+            <button class="btn btn-outline btn-page" id="btn-next" title="Página siguiente">Sig &rsaquo;</button>
+            <button class="btn btn-outline btn-page" id="btn-last" title="Última página">&raquo;</button>
+          </div>
+        </div>
+      </div>
 
       <!-- Estado: Carga (Skeleton) -->
       <div id="state-loading" class="state-box" style="display: none;">
