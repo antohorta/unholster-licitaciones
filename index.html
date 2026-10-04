@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Licitaciones Municipales - Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    
+    <!-- Header -->
+    <header class="header">
+      <h1>Explorador de Licitaciones Públicas Municipales</h1>
+      <p>Plataforma de seguimiento e inteligencia para analistas de compras públicas</p>
+    </header>
+
+    <!-- Dev Mode Controls (Para la evaluación de la Etapa 2) -->
+    <div class="dev-controls">
+      <span>Simular Estados UI:</span>
+      <button class="btn btn-outline" onclick="setUIState('success')">Datos Réal</button>
+      <button class="btn btn-outline" onclick="setUIState('loading')">Carga (Skeleton)</button>
+      <button class="btn btn-outline" onclick="setUIState('empty')">Sin Resultados</button>
+      <button class="btn btn-outline" onclick="setUIState('error')">Error de Red</button>
+    </div>
+
+    <!-- KPI Summary Grid -->
+    <section class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-title">Monto Total Licitado</div>
+        <div class="kpi-value" id="kpi-total-monto">CLP $0</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-title">Licitaciones Publicadas</div>
+        <div class="kpi-value" id="kpi-publicadas">0</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-title">Licitaciones Adjudicadas</div>
+        <div class="kpi-value" id="kpi-adjudicadas">0</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-title">Promedio Ofertas por Procesos</div>
+        <div class="kpi-value" id="kpi-promedio-ofertas">0</div>
+      </div>
+    </section>
+
+    <!-- Filters Section -->
+    <section class="filters-card">
+      <div class="filters-grid">
+        <div class="filter-group">
+          <label for="search-input">Búsqueda Global</label>
+          <input type="text" id="search-input" class="input-control" placeholder="Código, nombre o municipio...">
+        </div>
+        <div class="filter-group">
+          <label for="region-filter">Región</label>
+          <select id="region-filter" class="input-control">
+            <option value="">Todas las regiones</option>
+            <option value="La Araucanía">La Araucanía</option>
+            <option value="Metropolitana">Metropolitana</option>
+            <option value="Valparaíso">Valparaíso</option>
+            <option value="Biobío">Biobío</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="estado-filter">Estado</label>
+          <select id="estado-filter" class="input-control">
+            <option value="">Todos los estados</option>
+            <option value="Publicada">Publicada</option>
+            <option value="Cerrada">Cerrada</option>
+            <option value="Adjudicada">Adjudicada</option>
+            <option value="Desierta">Desierta</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="date-filter">Cierre hasta</label>
+          <input type="date" id-="date-filter" id="date-filter" class="input-control">
+        </div>
+      </div>
+      <div style="margin-top: var(--spacing-md); display: flex; justify-content: flex-end; gap: var(--spacing-sm);">
+        <button class="btn btn-outline" id="btn-reset">Limpiar Filtros</button>
+      </div>
+    </section>
+
+    <!-- Data Table Container -->
+    <section class="table-container">
+      <!-- Tabla Principal -->
+      <table class="data-table" id="main-table">
+        <thead>
+          <tr>
+            <th onclick="sortTable('codigo')">Código ↕</th>
+            <th onclick="sortTable('nombre')">Nombre / Municipio ↕</th>
+            <th onclick="sortTable('region')">Región ↕</th>
+            <th onclick="sortTable('estado')">Estado ↕</th>
+            <th onclick="sortTable('monto')">Monto Estimado ↕</th>
+            <th onclick="sortTable('fecha')">Fecha Cierre ↕</th>
+            <th onclick="sortTable('ofertas')">Ofertas ↕</th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          <!-- Renderizado dinámico vía JS -->
+        </tbody>
+      </table>
+
+      <!-- Estado: Carga (Skeleton) -->
+      <div id="state-loading" class="state-box" style="display: none;">
+        <div class="skeleton-line"></div>
+        <div class="skeleton-line"></div>
+        <div class="skeleton-line"></div>
+        <div class="skeleton-line"></div>
+      </div>
+
+      <!-- Estado: Sin Resultados -->
+      <div id="state-empty" class="state-box" style="display: none;">
+        <h3>No se encontraron licitaciones</h3>
+        <p style="color: var(--color-text-muted); margin-top: var(--spacing-xs);">Prueba ajustando los criterios de búsqueda o limpia los filtros.</p>
+      </div>
+
+      <!-- Estado: Error -->
+      <div id="state-error" class="state-box state-error" style="display: none;">
+        <h3>Error al cargar la información</h3>
+        <p style="margin-bottom: var(--spacing-md);">No fue posible conectar con el servidor de Mercado Público.</p>
+        <button class="btn btn-primary" onclick="setUIState('success')">Reintentar conexión</button>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Script de lógica -->
+  <script src="script.js"></script>
+</body>
+</html>
