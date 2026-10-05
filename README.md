@@ -4,12 +4,11 @@ Este proyecto es una solución visual y funcional para la visualización de lici
 
 ---
 
-1. [Decisión Tecnológica: ¿Por qué HTML, CSS y JavaScript nativo (Vanilla)?](#-decisión-tecnológica-por-qué-html-css-y-javascript-nativo-vanilla)
-2. [Sobre el Manejo de Estilos y Tokens de Diseño](#-sobre-el-manejo-de-estilos-y-tokens-de-diseño)
-3. [Decisiones de Diseño y Experiencia de Usuario (UX)](#️-decisiones-de-diseño-y-experiencia-de-usuario-ux)
-4. [Uso de Inteligencia Artificial](#-uso-de-inteligencia-artificial)
-5. [Requisitos Previos](#️-requisitos-previos)
-6. [Cómo levantar el proyecto paso a paso](#-cómo-levantar-el-proyecto-paso-a-paso)
+1. [Decisión Tecnológica: ¿Por qué HTML, CSS y JavaScript nativo (Vanilla)?](#decisión-tecnológica-por-qué-html-css-y-javascript-nativo-vanilla)
+2. [Sobre el Manejo de Estilos y Tokens de Diseño](#sobre-el-manejo-de-estilos-y-tokens-de-diseño)
+3. [Decisiones de Diseño y Experiencia de Usuario (UX)](#decisiones-de-diseño-y-experiencia-de-usuario-ux)
+4. [Uso de Inteligencia Artificial](#uso-de-inteligencia-artificial)
+5. [Cómo levantar el proyecto localmente](#cómo-levantar-el-proyecto-localmente)
 
 ---
 
