@@ -35,9 +35,12 @@
   --primitive-color-brand-900: #1F3889;
   --primitive-color-brand-950: #172454;
 
-  /* Error: valores del documento. Pendiente leer la escala real desde Figma (Inspect). */
+  /* Error: valores del documento. */
   --primitive-color-error-100: #F8D7DA;
   --primitive-color-error-750: #DC3545;
+
+  /* Success / Verde (Añadido para el badge de adjudicada) */
+  --primitive-color-success-50: #F5F9F3;
 
   /* 2. PRIMITIVOS - Espaciado */
   --primitive-space-0: 0px;
@@ -96,7 +99,7 @@
   --theme-border-neutral-default: var(--primitive-color-neutral-100);
 
   /* Layout Margins & Gutters por especificación Figma */
-  --layout-margin: var(--primitive-space-8); /* Figma indica 80px en Desktop X-Large: usar --primitive-space-10 si se quiere ese valor */
+  --layout-margin: var(--primitive-space-8);
   --layout-gutter: var(--primitive-space-4);
 
   /* ---------- B. EXTENSIONES PROPUESTAS ---------- */
@@ -114,12 +117,17 @@
   --ext-fg-on-action: var(--primitive-color-neutral-0);
   --ext-fg-interactive: var(--primitive-color-brand-700);
   --ext-border-brand: var(--primitive-color-brand-700);
+  
+  /* Extensiones de fondos suave/pastel para Badges */
+  --ext-bg-brand-subtle: var(--primitive-color-brand-50);
+  --ext-bg-success-subtle: var(--primitive-color-success-50);
   --ext-bg-error-subtle: var(--primitive-color-error-100);
+  --ext-bg-neutral-subtle: var(--primitive-color-neutral-50);
+
   --ext-border-error: var(--primitive-color-error-750);
   --ext-bg-skeleton: var(--theme-border-neutral-default);
 
-  /* Alias de compatibilidad: el HTML y el JS usan estos nombres en estilos en línea.
-     No son tokens del DS; apuntan a los tokens reales. */
+  /* Alias de compatibilidad */
   --color-text-muted: var(--theme-fg-text-muted);
   --spacing-xs: var(--primitive-space-1);
   --spacing-md: var(--primitive-space-4);
@@ -143,7 +151,6 @@ body {
   line-height: var(--ext-line-height-body);
 }
 
-/* Contenedor principal respetando el Grid de Desktop (1280px) */
 .container {
   max-width: var(--primitive-breakpoint-xlarge);
   margin: 0 auto;
@@ -151,7 +158,6 @@ body {
   padding-right: var(--layout-margin);
 }
 
-/* Header */
 .header {
   margin-bottom: var(--primitive-space-5);
 }
@@ -167,7 +173,6 @@ body {
   font-size: var(--primitive-type-scale-200);
 }
 
-/* Dev Mode Controls */
 .dev-controls {
   background: var(--theme-bg-brand-default);
   border: var(--ext-border-width-sm) solid var(--ext-border-brand);
@@ -185,7 +190,6 @@ body {
   font-size: var(--primitive-type-scale-200);
 }
 
-/* KPI Summary Bar */
 .kpi-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(var(--ext-size-kpi-min), 1fr));
@@ -214,7 +218,6 @@ body {
   margin-top: var(--primitive-space-1);
 }
 
-/* Filters Section */
 .filters-card {
   background-color: var(--theme-bg-mode-default);
   border: var(--ext-border-width-sm) solid var(--theme-border-neutral-default);
@@ -277,7 +280,6 @@ body {
   color: var(--theme-fg-text-muted);
 }
 
-/* Buttons */
 .btn {
   padding: var(--primitive-space-2) var(--primitive-space-4);
   border-radius: var(--primitive-radius-sm);
@@ -313,7 +315,6 @@ body {
   background-color: var(--theme-bg-mode-alt);
 }
 
-/* Data Table Container */
 .table-container {
   background-color: var(--theme-bg-mode-default);
   border: var(--ext-border-width-sm) solid var(--theme-border-neutral-default);
@@ -345,20 +346,49 @@ body {
   color: var(--ext-fg-interactive);
 }
 
-/* Status Badges */
+/* ==========================================================================
+   STATUS BADGES (Outline con Fondo Subtle - 100% Tokens)
+   ========================================================================== */
 .badge {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: var(--primitive-space-1) var(--primitive-space-2);
   border-radius: var(--primitive-radius-sm);
   font-size: var(--primitive-type-scale-100);
   font-weight: var(--primitive-type-weight-semibold);
   text-transform: capitalize;
+  border-width: var(--ext-border-width-sm);
+  border-style: solid;
 }
 
-.badge-publicada { background: var(--theme-bg-brand-default); color: var(--theme-fg-brand-default); }
-.badge-cerrada { background: var(--theme-bg-mode-default); color: var(--theme-fg-warning-default); border: var(--ext-border-width-sm) solid var(--theme-fg-warning-default); }
-.badge-adjudicada { background: var(--theme-bg-brand-default); color: var(--theme-fg-success-default); }
-.badge-desierta { background: var(--ext-bg-error-subtle); color: var(--theme-fg-error-default); }
+/* 1. Publicada (Azul) */
+.badge-publicada {
+  background-color: var(--ext-bg-brand-subtle);
+  border-color: var(--primitive-color-brand-600);
+  color: var(--primitive-color-brand-600);
+}
+
+/* 2. Adjudicada (Verde) */
+.badge-adjudicada {
+  background-color: var(--ext-bg-success-subtle);
+  border-color: var(--theme-fg-success-default);
+  color: var(--theme-fg-success-default);
+}
+
+/* 3. Desierta (Rojo) */
+.badge-desierta {
+  background-color: var(--ext-bg-error-subtle);
+  border-color: var(--theme-fg-error-default);
+  color: var(--theme-fg-error-default);
+}
+
+/* 4. Cerrada (Gris) */
+.badge-cerrada {
+  background-color: var(--ext-bg-neutral-subtle);
+  border-color: var(--primitive-color-neutral-950);
+  color: var(--primitive-color-neutral-950);
+}
 
 /* ==========================================================================
    PAGINATION COMPONENT
@@ -415,7 +445,6 @@ body {
   font-weight: var(--primitive-type-weight-semibold);
 }
 
-/* Estilo del componente Pagination de Figma: texto pequeño, botones sin borde, solo la página activa con borde */
 .pagination-info,
 .pagination-buttons .btn,
 .pagination-buttons .btn-num { font-size: var(--primitive-type-scale-100); }
@@ -455,12 +484,8 @@ body {
 }
 
 /* ==========================================================================
-   RESPONSIVE DESIGN (Alineado con Breakpoints & Layout de Figma)
-   Nota: CSS no permite var() dentro de @media, por eso 1023px y 767px van escritos
-   (corresponden a --primitive-breakpoint-large y --primitive-breakpoint-medium menos 1px).
+   RESPONSIVE DESIGN
    ========================================================================== */
-
-/* Tablet Layout (Medium: 768px a 1023px) */
 @media (max-width: 1023px) {
   .container {
     padding-left: var(--primitive-space-7);
@@ -468,7 +493,6 @@ body {
   }
 }
 
-/* Mobile Layout (X-Small y Small: hasta 767px) */
 @media (max-width: 767px) {
   .container {
     padding-left: var(--primitive-space-4);
