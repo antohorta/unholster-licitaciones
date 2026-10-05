@@ -17,7 +17,67 @@ const rawData = [
   { codigo: "3301-99-LE26", nombre: "Servicio de limpieza de playas urbanas", municipalidad: "Municipalidad de Valparaíso", region: "Valparaíso", estado: "Adjudicada", monto: 28000000, fecha: "2026-09-18", ofertas: 4 },
   { codigo: "4102-33-LE26", nombre: "Adquisición de vehículos operativos para inspección", municipalidad: "Municipalidad de Concepción", region: "Biobío", estado: "Publicada", monto: 54000000, fecha: "2026-10-19", ofertas: 2 },
   { codigo: "1502-44-LP26", nombre: "Conservación de pavimentos comunales", municipalidad: "Municipalidad de Santiago", region: "Metropolitana", estado: "Adjudicada", monto: 210000000, fecha: "2026-08-25", ofertas: 7 },
-  { codigo: "2410-11-LE26", nombre: "Servicio de seguridad para eventos culturales", municipalidad: "Municipalidad de Temuco", region: "La Araucanía", estado: "Desierta", monto: 9500000, fecha: "2026-09-01", ofertas: 0 }
+  { codigo: "2410-11-LE26", nombre: "Servicio de seguridad para eventos culturales", municipalidad: "Municipalidad de Temuco", region: "La Araucanía", estado: "Desierta", monto: 9500000, fecha: "2026-09-01", ofertas: 0 },
+  { codigo: "5201-15-LE26", nombre: "Adquisición de contenedores de reciclaje comunitario", municipalidad: "Municipalidad de Antofagasta", region: "Antofagasta", estado: "Publicada", monto: 31000000, fecha: "2026-10-25", ofertas: 2 },
+  { codigo: "5201-28-LP26", nombre: "Pavimentación y aceras sector El Olivar", municipalidad: "Municipalidad de Antofagasta", region: "Antofagasta", estado: "Adjudicada", monto: 175000000, fecha: "2026-09-05", ofertas: 4 },
+  { codigo: "6104-03-LE26", nombre: "Servicio de mantención preventiva de la red de alcantarillado", municipalidad: "Municipalidad de La Serena", region: "Coquimbo", estado: "Publicada", monto: 38000000, fecha: "2026-11-02", ofertas: 3 },
+  { codigo: "6104-19-LE26", nombre: "Habilitación de iluminación LED en parque Gabriel Coll", municipalidad: "Municipalidad de La Serena", region: "Coquimbo", estado: "Cerrada", monto: 24500000, fecha: "2026-09-29", ofertas: 5 },
+  { codigo: "7302-11-LP26", nombre: "Construcción de centro comunitario Villa Las Flores", municipalidad: "Municipalidad de Rancagua", region: "O'Higgins", estado: "Publicada", monto: 98000000, fecha: "2026-10-27", ofertas: 3 },
+  { codigo: "7302-44-LE26", nombre: "Adquisición de equipamiento médico para CESFAM comunal", municipalidad: "Municipalidad de Rancagua", region: "O'Higgins", estado: "Adjudicada", monto: 45000000, fecha: "2026-09-14", ofertas: 6 },
+  { codigo: "8205-09-LE26", nombre: "Servicio de transporte escolar para sectores rurales", municipalidad: "Municipalidad de Talca", region: "Maule", estado: "Publicada", monto: 29000000, fecha: "2026-10-18", ofertas: 2 },
+  { codigo: "8205-31-LE26", nombre: "Reparación y pintura de techumbres en liceo municipal", municipalidad: "Municipalidad de Talca", region: "Maule", estado: "Desierta", monto: 16000000, fecha: "2026-08-20", ofertas: 0 },
+  { codigo: "9101-05-LE26", nombre: "Suministro e instalación de refugios peatonales", municipalidad: "Municipalidad de Puerto Montt", region: "Los Lagos", estado: "Publicada", monto: 33500000, fecha: "2026-11-10", ofertas: 1 },
+  { codigo: "9101-24-LP26", nombre: "Mejoramiento del borde costero sector Pelluco", municipalidad: "Municipalidad de Puerto Montt", region: "Los Lagos", estado: "Adjudicada", monto: 185000000, fecha: "2026-09-08", ofertas: 4 },
+  { codigo: "1002-18-LE26", nombre: "Servicio de desratización y sanitización en edificios municipales", municipalidad: "Municipalidad de Iquique", region: "Tarapacá", estado: "Cerrada", monto: 12000000, fecha: "2026-10-04", ofertas: 4 },
+  { codigo: "1002-42-LE26", nombre: "Adquisición de uniformes para personal de operaciones", municipalidad: "Municipalidad de Iquique", region: "Tarapacá", estado: "Publicada", monto: 17800000, fecha: "2026-10-21", ofertas: 3 },
+  { codigo: "1105-07-LE26", nombre: "Mantención y calibración de plantas elevadoras de agua", municipalidad: "Municipalidad de Valdivia", region: "Los Ríos", estado: "Adjudicada", monto: 41000000, fecha: "2026-09-22", ofertas: 2 },
+  { codigo: "1105-33-LP26", nombre: "Construcción de ciclovía Avenida España", municipalidad: "Municipalidad de Valdivia", region: "Los Ríos", estado: "Publicada", monto: 76000000, fecha: "2026-11-01", ofertas: 5 },
+  { codigo: "1503-14-LE26", nombre: "Servicio de podas y tala de árboles de alto riesgo", municipalidad: "Municipalidad de Providencia", region: "Metropolitana", estado: "Publicada", monto: 39000000, fecha: "2026-10-16", ofertas: 4 },
+  { codigo: "1503-88-LP26", nombre: "Renovación integral de luminarias a tecnología LED sector sur", municipalidad: "Municipalidad de Providencia", region: "Metropolitana", estado: "Adjudicada", monto: 135000000, fecha: "2026-09-02", ofertas: 6 },
+  { codigo: "1504-02-LE26", nombre: "Servicio de banquettería para actividades del adulto mayor", municipalidad: "Municipalidad de Maipú", region: "Metropolitana", estado: "Cerrada", monto: 8500000, fecha: "2026-09-27", ofertas: 3 },
+  { codigo: "1504-61-LP26", nombre: "Reparación de matriz principal de agua potable rural", municipalidad: "Municipalidad de Maipú", region: "Metropolitana", estado: "Publicada", monto: 94000000, fecha: "2026-10-29", ofertas: 2 },
+  { codigo: "1505-23-LE26", nombre: "Arriendo de tótems digitales informativos para atención de público", municipalidad: "Municipalidad de La Florida", region: "Metropolitana", estado: "Desierta", monto: 15000000, fecha: "2026-08-28", ofertas: 0 },
+  { codigo: "1505-79-LE26", nombre: "Mejoramiento de accesibilidad universal en sede municipal", municipalidad: "Municipalidad de La Florida", region: "Metropolitana", estado: "Adjudicada", monto: 27500000, fecha: "2026-09-17", ofertas: 4 },
+  { codigo: "3302-12-LE26", nombre: "Adquisición de camión aljibe para distribución de agua potable", municipalidad: "Municipalidad de Viña del Mar", region: "Valparaíso", estado: "Publicada", monto: 68000000, fecha: "2026-10-24", ofertas: 3 },
+  { codigo: "3302-55-LP26", nombre: "Construcción mirador turístico sector Reñaca", municipalidad: "Municipalidad de Viña del Mar", region: "Valparaíso", estado: "Publicada", monto: 115000000, fecha: "2026-11-12", ofertas: 2 },
+  { codigo: "4103-04-LE26", nombre: "Servicio de patrullaje de seguridad ciudadana nocturno", municipalidad: "Municipalidad de Talcahuano", region: "Biobío", estado: "Adjudicada", monto: 52000000, fecha: "2026-09-11", ofertas: 5 },
+  { codigo: "4103-39-LE26", nombre: "Mantención de bombas de achique en pasos desniveles", municipalidad: "Municipalidad de Talcahuano", region: "Biobío", estado: "Cerrada", monto: 19000000, fecha: "2026-09-30", ofertas: 2 },
+  { codigo: "2411-08-LE26", nombre: "Adquisición de juguetes para entrega navideña comunal", municipalidad: "Municipalidad de Padre Las Casas", region: "La Araucanía", estado: "Publicada", monto: 21000000, fecha: "2026-10-15", ofertas: 4 },
+  { codigo: "2411-47-LP26", nombre: "Construcción de sede social junta de vecinos El Bosque", municipalidad: "Municipalidad de Padre Las Casas", region: "La Araucanía", estado: "Adjudicada", monto: 64000000, fecha: "2026-08-19", ofertas: 3 },
+  { codigo: "1201-03-LE26", nombre: "Suministro de leña y pellets para hogares vulnerables", municipalidad: "Municipalidad de Punta Arenas", region: "Magallanes", estado: "Cerrada", monto: 32000000, fecha: "2026-10-03", ofertas: 3 },
+  { codigo: "1201-19-LE26", nombre: "Servicio de limpieza y despeje de nieve en vías principales", municipalidad: "Municipalidad de Punta Arenas", region: "Magallanes", estado: "Adjudicada", monto: 88000000, fecha: "2026-09-25", ofertas: 2 },
+  { codigo: "1301-05-LE26", nombre: "Adquisición de kits de emergencia alimentaria y abrigo", municipalidad: "Municipalidad de Arica", region: "Arica y Parinacota", estado: "Publicada", monto: 18500000, fecha: "2026-10-31", ofertas: 1 },
+  { codigo: "1301-22-LE26", nombre: "Mantención de sombreaderos y paseo peatonal chinchorro", municipalidad: "Municipalidad de Arica", region: "Arica y Parinacota", estado: "Desierta", monto: 14000000, fecha: "2026-09-03", ofertas: 0 },
+  { codigo: "5201-15-LE26", nombre: "Adquisición de contenedores de reciclaje comunitario", municipalidad: "Municipalidad de Antofagasta", region: "Antofagasta", estado: "Publicada", monto: 31000000, fecha: "2026-10-25", ofertas: 2 },
+  { codigo: "5201-28-LP26", nombre: "Pavimentación y aceras sector El Olivar", municipalidad: "Municipalidad de Antofagasta", region: "Antofagasta", estado: "Adjudicada", monto: 175000000, fecha: "2026-09-05", ofertas: 4 },
+  { codigo: "6104-03-LE26", nombre: "Servicio de mantención preventiva de la red de alcantarillado", municipalidad: "Municipalidad de La Serena", region: "Coquimbo", estado: "Publicada", monto: 38000000, fecha: "2026-11-02", ofertas: 3 },
+  { codigo: "6104-19-LE26", nombre: "Habilitación de iluminación LED en parque Gabriel Coll", municipalidad: "Municipalidad de La Serena", region: "Coquimbo", estado: "Cerrada", monto: 24500000, fecha: "2026-09-29", ofertas: 5 },
+  { codigo: "7302-11-LP26", nombre: "Construcción de centro comunitario Villa Las Flores", municipalidad: "Municipalidad de Rancagua", region: "O'Higgins", estado: "Publicada", monto: 98000000, fecha: "2026-10-27", ofertas: 3 },
+  { codigo: "7302-44-LE26", nombre: "Adquisición de equipamiento médico para CESFAM comunal", municipalidad: "Municipalidad de Rancagua", region: "O'Higgins", estado: "Adjudicada", monto: 45000000, fecha: "2026-09-14", ofertas: 6 },
+  { codigo: "8205-09-LE26", nombre: "Servicio de transporte escolar para sectores rurales", municipalidad: "Municipalidad de Talca", region: "Maule", estado: "Publicada", monto: 29000000, fecha: "2026-10-18", ofertas: 2 },
+  { codigo: "8205-31-LE26", nombre: "Reparación y pintura de techumbres en liceo municipal", municipalidad: "Municipalidad de Talca", region: "Maule", estado: "Desierta", monto: 16000000, fecha: "2026-08-20", ofertas: 0 },
+  { codigo: "9101-05-LE26", nombre: "Suministro e instalación de refugios peatonales", municipalidad: "Municipalidad de Puerto Montt", region: "Los Lagos", estado: "Publicada", monto: 33500000, fecha: "2026-11-10", ofertas: 1 },
+  { codigo: "9101-24-LP26", nombre: "Mejoramiento del borde costero sector Pelluco", municipalidad: "Municipalidad de Puerto Montt", region: "Los Lagos", estado: "Adjudicada", monto: 185000000, fecha: "2026-09-08", ofertas: 4 },
+  { codigo: "1002-18-LE26", nombre: "Servicio de desratización y sanitización en edificios municipales", municipalidad: "Municipalidad de Iquique", region: "Tarapacá", estado: "Cerrada", monto: 12000000, fecha: "2026-10-04", ofertas: 4 },
+  { codigo: "1002-42-LE26", nombre: "Adquisición de uniformes para personal de operaciones", municipalidad: "Municipalidad de Iquique", region: "Tarapacá", estado: "Publicada", monto: 17800000, fecha: "2026-10-21", ofertas: 3 },
+  { codigo: "1105-07-LE26", nombre: "Mantención y calibración de plantas elevadoras de agua", municipalidad: "Municipalidad de Valdivia", region: "Los Ríos", estado: "Adjudicada", monto: 41000000, fecha: "2026-09-22", ofertas: 2 },
+  { codigo: "1105-33-LP26", nombre: "Construcción de ciclovía Avenida España", municipalidad: "Municipalidad de Valdivia", region: "Los Ríos", estado: "Publicada", monto: 76000000, fecha: "2026-11-01", ofertas: 5 },
+  { codigo: "1503-14-LE26", nombre: "Servicio de podas y tala de árboles de alto riesgo", municipalidad: "Municipalidad de Providencia", region: "Metropolitana", estado: "Publicada", monto: 39000000, fecha: "2026-10-16", ofertas: 4 },
+  { codigo: "1503-88-LP26", nombre: "Renovación integral de luminarias a tecnología LED sector sur", municipalidad: "Municipalidad de Providencia", region: "Metropolitana", estado: "Adjudicada", monto: 135000000, fecha: "2026-09-02", ofertas: 6 },
+  { codigo: "1504-02-LE26", nombre: "Servicio de banquettería para actividades del adulto mayor", municipalidad: "Municipalidad de Maipú", region: "Metropolitana", estado: "Cerrada", monto: 8500000, fecha: "2026-09-27", ofertas: 3 },
+  { codigo: "1504-61-LP26", nombre: "Reparación de matriz principal de agua potable rural", municipalidad: "Municipalidad de Maipú", region: "Metropolitana", estado: "Publicada", monto: 94000000, fecha: "2026-10-29", ofertas: 2 },
+  { codigo: "1505-23-LE26", nombre: "Arriendo de tótems digitales informativos para atención de público", municipalidad: "Municipalidad de La Florida", region: "Metropolitana", estado: "Desierta", monto: 15000000, fecha: "2026-08-28", ofertas: 0 },
+  { codigo: "1505-79-LE26", nombre: "Mejoramiento de accesibilidad universal en sede municipal", municipalidad: "Municipalidad de La Florida", region: "Metropolitana", estado: "Adjudicada", monto: 27500000, fecha: "2026-09-17", ofertas: 4 },
+  { codigo: "3302-12-LE26", nombre: "Adquisición de camión aljibe para distribución de agua potable", municipalidad: "Municipalidad de Viña del Mar", region: "Valparaíso", estado: "Publicada", monto: 68000000, fecha: "2026-10-24", ofertas: 3 },
+  { codigo: "3302-55-LP26", nombre: "Construcción mirador turístico sector Reñaca", municipalidad: "Municipalidad de Viña del Mar", region: "Valparaíso", estado: "Publicada", monto: 115000000, fecha: "2026-11-12", ofertas: 2 },
+  { codigo: "4103-04-LE26", nombre: "Servicio de patrullaje de seguridad ciudadana nocturno", municipalidad: "Municipalidad de Talcahuano", region: "Biobío", estado: "Adjudicada", monto: 52000000, fecha: "2026-09-11", ofertas: 5 },
+  { codigo: "4103-39-LE26", nombre: "Mantención de bombas de achique en pasos desniveles", municipalidad: "Municipalidad de Talcahuano", region: "Biobío", estado: "Cerrada", monto: 19000000, fecha: "2026-09-30", ofertas: 2 },
+  { codigo: "2411-08-LE26", nombre: "Adquisición de juguetes para entrega navideña comunal", municipalidad: "Municipalidad de Padre Las Casas", region: "La Araucanía", estado: "Publicada", monto: 21000000, fecha: "2026-10-15", ofertas: 4 },
+  { codigo: "2411-47-LP26", nombre: "Construcción de sede social junta de vecinos El Bosque", municipalidad: "Municipalidad de Padre Las Casas", region: "La Araucanía", estado: "Adjudicada", monto: 64000000, fecha: "2026-08-19", ofertas: 3 },
+  { codigo: "1201-03-LE26", nombre: "Suministro de leña y pellets para hogares vulnerables", municipalidad: "Municipalidad de Punta Arenas", region: "Magallanes", estado: "Cerrada", monto: 32000000, fecha: "2026-10-03", ofertas: 3 },
+  { codigo: "1201-19-LE26", nombre: "Servicio de limpieza y despeje de nieve en vías principales", municipalidad: "Municipalidad de Punta Arenas", region: "Magallanes", estado: "Adjudicada", monto: 88000000, fecha: "2026-09-25", ofertas: 2 },
+  { codigo: "1301-05-LE26", nombre: "Adquisición de kits de emergencia alimentaria y abrigo", municipalidad: "Municipalidad de Arica", region: "Arica y Parinacota", estado: "Publicada", monto: 18500000, fecha: "2026-10-31", ofertas: 1 },
+  { codigo: "1301-22-LE26", nombre: "Mantención de sombreaderos y paseo peatonal chinchorro", municipalidad: "Municipalidad de Arica", region: "Arica y Parinacota", estado: "Desierta", monto: 14000000, fecha: "2026-09-03", ofertas: 0 }
 ];
 
 let currentData = [...rawData];
@@ -25,7 +85,7 @@ let sortDirection = false;
 
 // Estado de paginación
 let currentPage = 1;
-let itemsPerPage = 6;
+let itemsPerPage = 10;
 
 // Formateadores
 const formatCLP = (val) => new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP' }).format(val);
@@ -124,9 +184,9 @@ function applyFilters() {
   const fecha = document.getElementById('date-filter').value;
 
   currentData = rawData.filter(item => {
-    const matchesSearch = item.codigo.toLowerCase().includes(search) || 
-                          item.nombre.toLowerCase().includes(search) || 
-                          item.municipalidad.toLowerCase().includes(search);
+    const matchesSearch = item.codigo.toLowerCase().includes(search) ||
+      item.nombre.toLowerCase().includes(search) ||
+      item.municipalidad.toLowerCase().includes(search);
     const matchesRegion = region === '' || item.region === region;
     const matchesEstado = estado === '' || item.estado === estado;
     const matchesFecha = fecha === '' || item.fecha <= fecha;
