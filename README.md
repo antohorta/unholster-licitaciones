@@ -42,7 +42,9 @@ En lugar de utilizar frameworks como React o Vue, opté por desarrollar el proye
 
 ## Uso de Inteligencia Artificial
 
-Utilicé la Inteligencia Artificial como un **asistente de maquetación rápida**. Me sirvió principalmente para estructurar código repetitivo y acelerar el aprendizaje sobre temas que eran nuevos para mí en este desafío (como el flujo de despliegue en GitHub Pages), permitiéndome enfocarme en la lógica visual, la usabilidad y la experiencia del usuario.
+Utilicé Inteligencia Artificial (Gemini) como herramienta de apoyo para generar la estructura inicial del código en HTML, CSS y JavaScript nativo, y como guía para el flujo de despliegue en GitHub Pages.
+
+Mi trabajo principal estuvo en iterar y corregir ese código base para adaptarlo a los requerimientos de la prueba: estructurar manualmente los tokens de diseño en el CSS (`:root`), adaptar el layout a pantallas móviles de 360 px (transformando la tabla en tarjetas verticales y ajustando los márgenes) y asegurar la sincronización de los distintos estados de la interfaz (*Skeleton*, *Empty State* y Error).
 
 ---
 

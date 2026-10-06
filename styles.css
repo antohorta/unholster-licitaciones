@@ -438,23 +438,41 @@ body {
   cursor: pointer;
 }
 
-.btn-num.active {
-  background-color: var(--theme-bg-mode-default);
-  color: var(--theme-fg-text-default);
-  border-color: var(--theme-border-neutral-default);
-  font-weight: var(--primitive-type-weight-semibold);
-}
-
+/* Tamaño de texto general */
 .pagination-info,
 .pagination-buttons .btn,
-.pagination-buttons .btn-num { font-size: var(--primitive-type-scale-100); }
+.pagination-buttons .btn-num { 
+  font-size: var(--primitive-type-scale-100); 
+}
 
+/* Botones inactivos (transparentes para que solo destaque la página actual) */
 .pagination-buttons .btn-outline,
 .pagination-buttons .btn-num:not(.active) {
   border-color: transparent;
   color: var(--theme-fg-text-muted);
 }
-.pagination-buttons .btn-outline:disabled { color: var(--theme-fg-text-muted); }
+.pagination-buttons .btn-outline:disabled { 
+  color: var(--theme-fg-text-muted); 
+}
+
+/* Botón de página activa: mismo borde, fondo y border-radius que .input-control */
+.pagination-buttons .btn-num.active {
+  background-color: var(--theme-bg-mode-default);
+  color: var(--theme-fg-text-default);
+  border: var(--ext-border-width-sm) solid var(--theme-border-neutral-default) !important;
+  border-radius: var(--primitive-radius-sm);
+  font-weight: var(--primitive-type-weight-semibold);
+}
+
+/* Alineación de los puntos suspensivos (...) */
+.pagination-dots {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--primitive-type-scale-100);
+  color: var(--theme-fg-text-muted);
+  user-select: none;
+}
 
 /* UI States */
 .state-box {
@@ -478,48 +496,89 @@ body {
   margin-bottom: var(--primitive-space-2);
 }
 
+.kpi-value.skeleton {
+  width: 70%;
+  height: 28px;
+  background: linear-gradient(90deg, var(--theme-bg-mode-alt) 25%, var(--ext-bg-skeleton) 50%, var(--theme-bg-mode-alt) 75%);
+  background-size: 200% 100%;
+  animation: loading var(--ext-motion-skeleton) infinite;
+  border-radius: var(--primitive-radius-sm);
+  color: transparent !important; /* Oculta el texto mientras carga */
+  user-select: none;
+}
+
+
 @keyframes loading {
   0% { background-position: 200% 0; }
   100% { background-position: -200% 0; }
 }
 
 /* ==========================================================================
-   RESPONSIVE DESIGN
+   RESPONSIVE DESIGN (Optimizado para 360px sin scroll horizontal)
    ========================================================================== */
+
 @media (max-width: 1023px) {
   .container {
-    padding-left: var(--primitive-space-7);
-    padding-right: var(--primitive-space-7);
+    padding-left: var(--primitive-space-5);
+    padding-right: var(--primitive-space-5);
   }
 }
 
 @media (max-width: 767px) {
+  /* 1. Ajuste de márgenes globales para ganar área útil */
+  body {
+    padding: var(--primitive-space-3) 0;
+  }
+
   .container {
-    padding-left: var(--primitive-space-4);
-    padding-right: var(--primitive-space-4);
+    padding-left: var(--primitive-space-3);
+    padding-right: var(--primitive-space-3);
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* 2. Grillas a 1 columna completa */
+  .kpi-grid,
+  .filters-grid {
+    grid-template-columns: 1fr;
+    gap: var(--primitive-space-3);
+  }
+
+  /* 3. Tarjetas de la tabla súper limpias */
+  .table-container {
+    border: none;
+    background: transparent;
   }
 
   .data-table thead {
     display: none;
   }
 
-  .data-table, .data-table tbody, .data-table tr, .data-table td {
+  .data-table, 
+  .data-table tbody, 
+  .data-table tr, 
+  .data-table td {
     display: block;
     width: 100%;
   }
 
   .data-table tr {
-    border-bottom: var(--primitive-space-2) solid var(--theme-bg-mode-alt);
-    padding: var(--primitive-space-2);
+    border: var(--ext-border-width-sm) solid var(--theme-border-neutral-default);
+    padding: var(--primitive-space-3);
+    margin-bottom: var(--primitive-space-3);
+    background-color: var(--theme-bg-mode-default);
+    border-radius: var(--primitive-radius-md);
   }
 
   .data-table td {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--primitive-space-2) var(--primitive-space-0);
-    border-bottom: var(--ext-border-width-sm) solid var(--theme-border-neutral-default);
+    padding: var(--primitive-space-1) 0;
+    border-bottom: var(--ext-border-width-sm) dashed var(--theme-border-neutral-default);
     text-align: right;
+    font-size: var(--primitive-type-scale-200);
+    word-break: break-word;
   }
 
   .data-table td::before {
@@ -527,25 +586,42 @@ body {
     font-weight: var(--primitive-type-weight-semibold);
     color: var(--theme-fg-text-muted);
     text-align: left;
-    margin-right: var(--primitive-space-4);
+    margin-right: var(--primitive-space-2);
+    flex-shrink: 0;
   }
 
   .data-table td:last-child {
     border-bottom: none;
   }
 
-  .filters-actions {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
+  /* 4. Paginación compacta que no se desborda */
   .pagination-container {
     flex-direction: column;
-    align-items: stretch;
-    text-align: center;
+    align-items: center;
+    padding: var(--primitive-space-3) var(--primitive-space-2);
+    gap: var(--primitive-space-3);
   }
 
   .pagination-controls {
+    flex-direction: column;
+    width: 100%;
+    gap: var(--primitive-space-2);
+  }
+
+  .pagination-buttons {
+    width: 100%;
     justify-content: center;
+    gap: var(--primitive-space-1);
+  }
+
+  .btn-num {
+    padding: var(--primitive-space-1);
+    min-width: 28px;
+  }
+
+  /* Ocultar botones << y >> en mobile para evitar scroll horizontal */
+  #btn-first,
+  #btn-last {
+    display: none;
   }
 }
