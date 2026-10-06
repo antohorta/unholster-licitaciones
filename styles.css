@@ -1,16 +1,14 @@
 /* ==========================================================================
    DESIGN SYSTEM TOKENS
    Bloque A: transcritos del documento "lista inicial de tokens mínimos".
-   Bloque B: EXTENSIONES PROPUESTAS (prefijo --ext-): no existen en el DS actual.
-   Fuera de :root no hay colores, px ni tiempos escritos a mano.
+   Bloque B: EXTENSIONES PROPUESTAS (prefijo --ext-): no existen/no se encuentran en el DS actual.
    ========================================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap');
 
 :root {
   /* ---------- A. Del documento de tokens ---------- */
 
-  /* 1. PRIMITIVOS - Colores: escalas de Figma > Colors.
-     Hallazgo: #2150E0 es brand 700 en Figma pero "brand.500" en el documento de tokens. Sigo la numeración de Figma. */
+  /* 1. PRIMITIVOS - Colores: escalas de Figma > Colors. */
   --primitive-color-neutral-0: #FFFFFF;
   --primitive-color-neutral-50: #F6F6F6;
   --primitive-color-neutral-100: #E7E7E7;
@@ -117,7 +115,7 @@
   --ext-fg-on-action: var(--primitive-color-neutral-0);
   --ext-fg-interactive: var(--primitive-color-brand-700);
   --ext-border-brand: var(--primitive-color-brand-700);
-  
+
   /* Extensiones de fondos suave/pastel para Badges */
   --ext-bg-brand-subtle: var(--primitive-color-brand-50);
   --ext-bg-success-subtle: var(--primitive-color-success-50);
@@ -329,7 +327,8 @@ body {
   font-size: var(--primitive-type-scale-200);
 }
 
-.data-table th, .data-table td {
+.data-table th,
+.data-table td {
   padding: var(--primitive-space-4);
   border-bottom: var(--ext-border-width-sm) solid var(--theme-border-neutral-default);
 }
@@ -347,7 +346,7 @@ body {
 }
 
 /* ==========================================================================
-   STATUS BADGES (Outline con Fondo Subtle - 100% Tokens)
+   STATUS BADGES (Outline con Fondo Subtle)
    ========================================================================== */
 .badge {
   display: inline-flex;
@@ -441,21 +440,22 @@ body {
 /* Tamaño de texto general */
 .pagination-info,
 .pagination-buttons .btn,
-.pagination-buttons .btn-num { 
-  font-size: var(--primitive-type-scale-100); 
+.pagination-buttons .btn-num {
+  font-size: var(--primitive-type-scale-100);
 }
 
-/* Botones inactivos (transparentes para que solo destaque la página actual) */
+/* Botones inactivos */
 .pagination-buttons .btn-outline,
 .pagination-buttons .btn-num:not(.active) {
   border-color: transparent;
   color: var(--theme-fg-text-muted);
 }
-.pagination-buttons .btn-outline:disabled { 
-  color: var(--theme-fg-text-muted); 
+
+.pagination-buttons .btn-outline:disabled {
+  color: var(--theme-fg-text-muted);
 }
 
-/* Botón de página activa: mismo borde, fondo y border-radius que .input-control */
+/* Botón de página activa */
 .pagination-buttons .btn-num.active {
   background-color: var(--theme-bg-mode-default);
   color: var(--theme-fg-text-default);
@@ -503,18 +503,24 @@ body {
   background-size: 200% 100%;
   animation: loading var(--ext-motion-skeleton) infinite;
   border-radius: var(--primitive-radius-sm);
-  color: transparent !important; /* Oculta el texto mientras carga */
+  color: transparent !important;
+  /* Oculta el texto mientras carga */
   user-select: none;
 }
 
 
 @keyframes loading {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 /* ==========================================================================
-   RESPONSIVE DESIGN (Optimizado para 360px sin scroll horizontal)
+   RESPONSIVE DESIGN 360px
    ========================================================================== */
 
 @media (max-width: 1023px) {
@@ -525,6 +531,7 @@ body {
 }
 
 @media (max-width: 767px) {
+
   /* 1. Ajuste de márgenes globales para ganar área útil */
   body {
     padding: var(--primitive-space-3) 0;
@@ -544,7 +551,7 @@ body {
     gap: var(--primitive-space-3);
   }
 
-  /* 3. Tarjetas de la tabla súper limpias */
+  /* 3. Tarjetas de la tabla */
   .table-container {
     border: none;
     background: transparent;
@@ -554,9 +561,9 @@ body {
     display: none;
   }
 
-  .data-table, 
-  .data-table tbody, 
-  .data-table tr, 
+  .data-table,
+  .data-table tbody,
+  .data-table tr,
   .data-table td {
     display: block;
     width: 100%;

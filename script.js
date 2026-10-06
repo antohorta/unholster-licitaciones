@@ -126,7 +126,6 @@ function renderPaginationControls(totalItems, totalPages, startIndex, endIndex) 
   const pageNumbersContainer = document.getElementById('page-numbers');
   pageNumbersContainer.innerHTML = '';
 
-  // --- INICIO DEL CAMBIO CON SUSPENSIVOS (...) ---
   const maxButtons = 3; // Número de páginas numéricas a mostrar a la vez
 
   // Determinar la página de inicio para mostrar 3 botones
@@ -165,7 +164,6 @@ function renderPaginationControls(totalItems, totalPages, startIndex, endIndex) 
     dotsRight.style.color = 'var(--color-text-muted)';
     pageNumbersContainer.appendChild(dotsRight);
   }
-  // --- FIN DEL CAMBIO ---
 }
 
 // Función helper para cambiar de página
@@ -231,7 +229,6 @@ function sortTable(key) {
   renderTable(currentData);
 }
 
-// Control de Estados UI (Testing)
 // Control de Estados UI
 function setUIState(state) {
   const table = document.getElementById('main-table');
